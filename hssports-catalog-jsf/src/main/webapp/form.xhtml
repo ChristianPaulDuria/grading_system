@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="pageHeader">
+		<h:link value="#{msg['form.pageTitle']}" outcome="form"/> |
+		<h:link value="#{msg['list.pageTitle']}" outcome="list"/>
+	</ui:define>
+	<ui:define name="body">
+		<h:outputScript library="js" name="shake.js"></h:outputScript>
+		<h:form id="item-form">
+			<div>
+				<h:outputLabel value="Student Name" />
+				<h:inputText id="studentName" value="#{catalogItemFormBean.item.studentName}">
+				</h:inputText>
+				<h:message for="studentName"/>
+			</div>
+			<div>
+				<h:outputLabel value="Student ID" />
+				<h:inputText value="#{catalogItemFormBean.item.student_id}"></h:inputText>
+			</div>
+			<div>
+				<h:outputLabel value="First Grading" />
+				<h:inputText value="#{catalogItemFormBean.item.firstGrading}"></h:inputText>
+			</div>
+			<div>
+				<h:outputLabel value="Second Grading" />
+				<h:inputText value="#{catalogItemFormBean.item.secondGrading}"></h:inputText>
+			</div>
+			<div>
+				<h:outputLabel value="Third Grading" />
+				<h:inputText value="#{catalogItemFormBean.item.thirdGrading}"></h:inputText>
+			</div>
+			<div>
+				<h:outputLabel value="Fourth Grading" />
+				<h:inputText value="#{catalogItemFormBean.item.fourthGrading}"></h:inputText>
+			</div>
+			<h:commandButton value="Submit" action="#{catalogItemFormBean.addItem()}"/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/template.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="itemId" value="#{catalogItemDeleteBean.itemId}"></f:viewParam>
+        <f:event type="preRenderView" listener="#{catalogItemDeleteBean.fetchItem()}"/>
+    </f:metadata>
+
+    <ui:define name="body">
+        <h:form>
+            <h3>Update an Item:</h3>
+            <div>
+                <h:outputLabel value="Student Name:"></h:outputLabel>
+                <h:inputText value="#{catalogItemDeleteBean.item.studentName}" />
+            </div>
+            <div>
+                <h:outputLabel value="Student ID:"></h:outputLabel>
+                <h:inputText value="#{catalogItemDeleteBean.item.student_id}" />
+            </div>
+            <div>
+                <h:outputLabel value="First Grading:"></h:outputLabel>
+                <h:inputText value="#{catalogItemDeleteBean.item.firstGrading}" />
+            </div>
+            <div>
+                <h:outputLabel value="Second Grading:"></h:outputLabel>
+                <h:inputText value="#{catalogItemDeleteBean.item.secondGrading}" />
+            </div>
+            <div>
+                <h:outputLabel value="Third Grading:"></h:outputLabel>
+                <h:inputText value="#{catalogItemDeleteBean.item.thirdGrading}" />
+            </div>
+            <div>
+                <h:outputLabel value="Fourth Grading:"></h:outputLabel>
+                <h:inputText value="#{catalogItemDeleteBean.item.fourthGrading}" />
+            </div>
+            <h:commandButton action="#{catalogItemDeleteBean.updateItem}" value="Submit" />
+           <h:commandButton action="list" value="Cancel" />
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
