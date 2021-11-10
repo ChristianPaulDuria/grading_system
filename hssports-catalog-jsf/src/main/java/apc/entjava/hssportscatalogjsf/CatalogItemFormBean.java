@@ -36,6 +36,7 @@ public class CatalogItemFormBean implements Serializable {
 	public String addItem() {
 //		long itemId = this.catalogBean.getItems().size() + 1;
 
+
 		this.catalogBean.addItem(new Grade_Entity(this.item.getStudentName(), this.item.getStudent_id(),
 				this.item.getFirstGrading(), this.item.getSecondGrading(), this.item.getThirdGrading(), this.item.getFourthGrading(),
 				this.item.getAverageFinalGrading(), this.item.getRemarks()));
@@ -43,28 +44,13 @@ public class CatalogItemFormBean implements Serializable {
 		return "list?faces-redirect=true";
 	}
 
-	public Integer computeGrades(){
-		this.items = this.catalogBean.computeGrades(item.getFirstGrading(),item.getSecondGrading(),item.getThirdGrading(), item.getFourthGrading());
-		// Grade_Entity
-		Integer average = 0;
-		Integer firstGrading = item.getFirstGrading();
-		Integer secondGrading = item.getSecondGrading();
-		Integer thirdGrading = item.getThirdGrading();
-		Integer fourthGrading = item.getFourthGrading();
-
-		// first grading + second  + third  + fourth / 4 = finalgrading
-		average = (firstGrading + secondGrading + thirdGrading + fourthGrading) / 4;
-
-		this.averageFinalGrading = average;
-
-		return averageFinalGrading;
-	}
-
-
-
+	   /** compute grades / get items / remarks */
 		public void init() {
 		this.items = this.catalogBean.getItems();
+		this.items.forEach(item-> item.setAverageFinalGrading(this.catalogBean.computeGrade(item.getStudent_id())));
+		this.items.forEach(item-> item.setRemarks(item.getAverageFinalGrading()>75?"Passed":"Failed"));
 	}
+
 
 	public Grade_Repository_local getCatalogBean() {
 		return catalogBean;

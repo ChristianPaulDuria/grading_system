@@ -114,11 +114,6 @@ public class Grade_Entity {
 
 	public void setFourthGrading(Integer fourth_grading) {
 		this.fourth_grading= fourth_grading;
-		if (fourth_grading > 75) {
-			this.remarks = "Passed";
-		} else {
-			this.remarks = "Failed";
-		}
 	}
 
 	public Integer getAverageFinalGrading() {
@@ -127,6 +122,7 @@ public class Grade_Entity {
 
 	public void setAverageFinalGrading(Integer averageFinalGrading) {
 		this.averageFinalGrading = averageFinalGrading;
+
 	}
 
 	public String getRemarks() {
@@ -135,6 +131,7 @@ public class Grade_Entity {
 
 	public void setRemarks(String remarks) {
 		this.remarks= remarks;
+
 	}
 
 	@Override

@@ -7,7 +7,6 @@
 <ui:composition template="/template.xhtml">
 	<f:metadata>
 		<f:viewAction action="#{catalogItemFormBean.init}"></f:viewAction>
-		<!-- <f:viewAction action="#{ComputeGradesBean.init}"></f:viewAction> -->
 	</f:metadata>
 		<ui:define name="pageHeader">
 		<h:link value="#{msg['form.pageTitle']}" outcome="form"/> |
@@ -48,7 +47,6 @@
 				<f:facet name="header">Fourth Grading</f:facet>
 				<h:outputText value="#{item.fourthGrading}" />
 			</h:column>
-			 <!-- <h:dataTable id="gradeTable" value="#{ComputeGradesBean.grades}" var="grade"> -->
 			<h:column>
 				<f:facet name="header">Final Grade</f:facet>
 				<h:outputText value="#{item.averageFinalGrading}" />
